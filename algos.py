@@ -72,3 +72,25 @@ def minimumWaitingTime(queries):
 		timeToExecute += time * queriesLeft
 
     return timeToExecute
+
+# CLASS PHOTOS
+
+def classPhotos(redShirtHeights, blueShirtHeights):
+    redShirtHeights.sort()
+	blueShirtHeights.sort()
+	lastIdx = len(redShirtHeights) - 1
+	
+	if redShirtHeights[lastIdx] > blueShirtHeights[lastIdx]:
+		backRow = redShirtHeights
+		frontRow = blueShirtHeights
+	else:
+		frontRow = redShirtHeights
+		backRow = blueShirtHeights
+	
+	i = 0
+	while i < len(frontRow):
+		if frontRow[i] >= backRow[i]:
+			return False
+		i += 1
+	
+    return True
