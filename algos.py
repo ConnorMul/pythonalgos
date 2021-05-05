@@ -121,3 +121,26 @@ def reverseArray(array):
 		array[start], array[end] = array[end], array[start]
 		start += 1
 		end -= 1
+  
+#   FIBONACCI
+
+def getNthFib(n):
+    if n == 2:
+		return 1
+    elif n == 1:
+		return 0
+	
+    return getNthFib(n - 1) + getNthFib(n - 2)
+
+# PRODUCT SUM
+
+def productSum(array, multiplier=1):
+    sumOfNums = 0
+	
+	for item in array:
+		if type(item) is list:
+			sumOfNums += productSum(item, multiplier + 1)
+		else:
+			sumOfNums += item
+	return sumOfNums * multiplier
+
