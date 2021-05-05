@@ -35,3 +35,13 @@ def isValidSubsequence(array, sequence):
 		arrayIdx += 1
 
 	return seqIdx == len(sequence)
+
+# SORTED SQUARED ARRAY
+
+def sortedSquaredArray(array):
+    resultArray = []
+	
+	for num in array:
+		resultArray.append(num * num)
+	resultArray.sort()
+    return resultArray
