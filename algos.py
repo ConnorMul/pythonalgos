@@ -21,3 +21,17 @@ def twoNumberSum(array, targetSum):
                 return [firstNum, secondNum]
             
     return []
+
+# VALIDATE SUBSEQUENCE
+
+def isValidSubsequence(array, sequence):
+    arrayIdx = 0
+	seqIdx = 0
+	
+	while arrayIdx < len(array) and seqIdx < len(sequence):
+		if array[arrayIdx] == sequence[seqIdx]:
+			seqIdx += 1
+		
+		arrayIdx += 1
+
+	return seqIdx == len(sequence)
