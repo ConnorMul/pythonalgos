@@ -25,7 +25,7 @@ def twoNumberSum(array, targetSum):
 # VALIDATE SUBSEQUENCE
 
 def isValidSubsequence(array, sequence):
-    arrayIdx = 0
+    arrayIdx = 0,
 	seqIdx = 0
 	
 	while arrayIdx < len(array) and seqIdx < len(sequence):
@@ -45,3 +45,18 @@ def sortedSquaredArray(array):
 		resultArray.append(num * num)
 	resultArray.sort()
     return resultArray
+
+# NONCONSTRUCTIBLE CHANGE
+
+def nonConstructibleChange(coins):
+    cantConstruct = 0
+	coins.sort()
+	i = 0
+	while i < len(coins):
+		if coins[i] > cantConstruct + 1:
+			return cantConstruct + 1
+		
+		cantConstruct += coins[i]
+		i += 1
+	
+    return cantConstruct + 1
