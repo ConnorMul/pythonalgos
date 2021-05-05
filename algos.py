@@ -25,38 +25,50 @@ def twoNumberSum(array, targetSum):
 # VALIDATE SUBSEQUENCE
 
 def isValidSubsequence(array, sequence):
-    arrayIdx = 0,
-	seqIdx = 0
+    arrayIdx = 0
+    seqIdx = 0
 	
-	while arrayIdx < len(array) and seqIdx < len(sequence):
+    while arrayIdx < len(array) and seqIdx < len(sequence):
 		if array[arrayIdx] == sequence[seqIdx]:
 			seqIdx += 1
-		
+
 		arrayIdx += 1
 
-	return seqIdx == len(sequence)
+    return seqIdx == len(sequence)
 
 # SORTED SQUARED ARRAY
 
 def sortedSquaredArray(array):
     resultArray = []
-	
-	for num in array:
+
+    for num in array:
 		resultArray.append(num * num)
-	resultArray.sort()
+    resultArray.sort()
     return resultArray
 
 # NONCONSTRUCTIBLE CHANGE
 
 def nonConstructibleChange(coins):
     cantConstruct = 0
-	coins.sort()
-	i = 0
-	while i < len(coins):
+    coins.sort()
+    i = 0
+    while i < len(coins):
 		if coins[i] > cantConstruct + 1:
 			return cantConstruct + 1
-		
+
 		cantConstruct += coins[i]
 		i += 1
-	
+
     return cantConstruct + 1
+
+# MINIMUM WAITING TIME
+
+def minimumWaitingTime(queries):
+    queries.sort()
+    timeToExecute = 0
+
+    for idx, time in enumerate(queries):
+		queriesLeft = len(queries) - (idx + 1)
+		timeToExecute += time * queriesLeft
+
+    return timeToExecute
