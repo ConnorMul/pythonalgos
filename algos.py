@@ -77,20 +77,47 @@ def minimumWaitingTime(queries):
 
 def classPhotos(redShirtHeights, blueShirtHeights):
     redShirtHeights.sort()
-	blueShirtHeights.sort()
-	lastIdx = len(redShirtHeights) - 1
+    blueShirtHeights.sort()
+    lastIdx = len(redShirtHeights) - 1
 	
-	if redShirtHeights[lastIdx] > blueShirtHeights[lastIdx]:
+    if redShirtHeights[lastIdx] > blueShirtHeights[lastIdx]:
 		backRow = redShirtHeights
 		frontRow = blueShirtHeights
-	else:
+    else:
 		frontRow = redShirtHeights
 		backRow = blueShirtHeights
 	
-	i = 0
-	while i < len(frontRow):
+    i = 0
+    while i < len(frontRow):
 		if frontRow[i] >= backRow[i]:
 			return False
 		i += 1
 	
     return True
+
+
+# TANDEM BICYCLE
+
+def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
+    # Write your code here.
+	redShirtSpeeds.sort()
+	blueShirtSpeeds.sort()
+	
+	if not fastest:
+		reverseArray(redShirtSpeeds)
+	
+	totalSpeed = 0
+	for idx in range(len(redShirtSpeeds)):
+		rider1 = redShirtSpeeds[idx]
+		rider2 = blueShirtSpeeds[len(blueShirtSpeeds) - idx - 1]
+		totalSpeed += max(rider1, rider2)
+	
+    return totalSpeed
+
+def reverseArray(array):
+	start = 0
+	end = len(array) - 1
+	while start < end:
+		array[start], array[end] = array[end], array[start]
+		start += 1
+		end -= 1
